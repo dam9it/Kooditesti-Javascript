@@ -1,0 +1,40 @@
+<script>
+printInBox("Hello World in a frame");
+
+function printInBox(input){
+var largestWord = longestWord(input);
+var numOfAsterisks = largestWord.length + 3;
+upperAndLowerLine(numOfAsterisks);
+var words = input.split(' ');
+numOFWords = words.length;
+for (i = 0; i < numOFWords; i++) {
+var rightWall = "";
+var emptySpace = largestWord.length - words[i].length +1
+for (j = 0; j < emptySpace; j++) {
+rightWall += " ";
+}
+rightWall += "*";
+console.log("*"+words[i]+rightWall);
+}
+upperAndLowerLine(numOfAsterisks);
+}
+
+function upperAndLowerLine(numOfAsterisks){
+var line = "";
+for (i = 0; i < numOfAsterisks; i++) {
+line += "*";
+}
+console.log(line);
+}
+
+
+function longer(champ, contender) {
+  return (contender.length > champ.length) ? contender: champ;
+}
+
+function longestWord(str) {
+    var words = str.split(' ');
+    return words.reduce(longer);
+}
+
+</script>
